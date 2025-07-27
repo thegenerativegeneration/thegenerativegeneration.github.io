@@ -23,9 +23,23 @@ module ExternalPosts
     end
 
     def fetch_from_rss(site, src)
-      xml = HTTParty.get(src['rss_url']).body
-      return if xml.nil?
+      response = HTTParty.get(
+        src['rss_url'],
+        headers: {
+          "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115 Safari/537.36",
+          "Accept" => "application/rss+xml,application/xml;q=0.9,*/*;q=0.8",
+          "Referer" => site.config['url'] || "https://example.com"
+        },
+        timeout: 10
+      )
+
+      return unless response.success?
+      xml = response.body
+      return if xml.nil? || xml.strip.empty?
+
       feed = Feedjira.parse(xml)
+      return if feed.nil? || feed.entries.nil?
+
       process_entries(site, src, feed.entries)
     end
 
