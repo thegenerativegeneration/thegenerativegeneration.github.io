@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-easiest-way-to-use-3d-gaussians-splatting",
+        },{id: "post-coming-soon",
+        
+          title: 'Coming soon <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "This is Philipp&amp;#8217;s Substack.",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://philipphaslbauer.substack.com/p/coming-soon", "_blank");
+          
+        },
+      },{id: "post-easiest-way-to-use-3d-gaussians-splatting",
         
           title: "Easiest Way To Use 3D Gaussians Splatting",
         
