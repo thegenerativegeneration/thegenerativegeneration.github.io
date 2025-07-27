@@ -37,6 +37,21 @@ $black-color: #000000 !default;
 $code-bg-color-light: rgba($purple-color, 0.05);
 $code-bg-color-dark: #2c3237 !default;
 
+// Custom colors
+$accent-color: #e3ffd6;     // Neon cyan
+$glitch-color: #ffbcef;  // Neon cyan
+$neon-glow-color: #ffbcef;
+$accent:  #ffbcef; // Base accent color (not explicitly used in CSS)
+$accent-light: adjust-hue(saturate(lighten($accent, 11%), 12.6%), 14%); // Derived from $accent
+$selectionColor: lighten($accent, 30%); // Derived lighter accent
+
+$textColor: #92288f;    // Bright green-cyan for body text
+$headlineColor: #e3ffd6;      // Headings in neon cyan
+$bgcolor: #FFFFFF;      // Black, cyberpunk background
+$documentBackgroundColor: #FFFFFF; // Footer background
+
+
+
 // Font awesome location
 $fa-font-path: "../webfonts";
 

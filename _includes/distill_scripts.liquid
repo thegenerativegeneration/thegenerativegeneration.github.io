@@ -74,13 +74,6 @@
     integrity="{{ site.third_party_libraries.echarts.integrity.js.library }}"
     crossorigin="anonymous"
   ></script>
-  {% if site.enable_darkmode %}
-    <script
-      src="{{ site.third_party_libraries.echarts.url.js.dark_theme }}"
-      integrity="{{ site.third_party_libraries.echarts.integrity.js.dark_theme }}"
-      crossorigin="anonymous"
-    ></script>
-  {% endif %}
   <script defer src="{{ '/assets/js/echarts-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
