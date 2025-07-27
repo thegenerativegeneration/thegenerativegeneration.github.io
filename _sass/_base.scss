@@ -233,7 +233,7 @@ ul.task-list input[type="checkbox"] {
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 100%;
 
     .address {
       p {
@@ -305,7 +305,7 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
-    font-size: xx-large;
+    font-size: large;
   }
 
   .navbar-nav .nav-item .nav-link {
@@ -329,24 +329,24 @@ ul.task-list input[type="checkbox"] {
   .navbar-brand.social {
     padding-bottom: 0;
     padding-top: 0;
-    font-size: 1.7rem;
+    font-size: 0.5rem;
 
     a {
       img {
-        width: 1.7rem;
-        height: 1.7rem;
+        width: 0.9rem;
+        height: 0.9rem;
         margin-bottom: 0.5rem;
         // margin: 0.5rem;
       }
 
       svg {
-        width: 1.7rem;
-        height: 1.7rem;
+        width: 0.9rem;
+        height: 0.9rem;
         margin-bottom: 0.5rem;
 
         image {
-          width: 1.7rem;
-          height: 1.7rem;
+          width: 0.9rem;
+          height: 0.9rem;
         }
       }
 

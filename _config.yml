@@ -7,7 +7,7 @@ first_name: Philipp
 middle_name: 
 last_name: Haslbauer
 contact_note: >
-  Reach me at my email or through social media.
+  Reach me via email or through social media.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Software developer, researcher, and artist based in Lucerne, Switzerland.
 footer_text: # the footer text (if blank, the site title will be used instead)
