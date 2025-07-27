@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: about_cv
 title: about
 permalink: /
 #subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
@@ -26,18 +26,6 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
+is a researcher, software developer, and artist based in Lucerne, Switzerland.
 
-This is Philipp Haslbauer's portfolio website.
-
-I am a researcher, software developer, and artist based in Lucerne, Switzerland.
-
-My focus is on interactive installations through the use of generative AI.
-
-
-
-## Contact
-
-You can contact me via
-* [email](mailto:phhaslbauer@yahoo.de)
-* [instagram](https://instagram.com/feili667)
-* [linkedin](https://www.linkedin.com/in/haslbauer/)
+His focus is on interactive installations through the use of generative AI.
