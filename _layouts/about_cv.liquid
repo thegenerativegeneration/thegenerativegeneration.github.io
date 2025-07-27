@@ -48,62 +48,68 @@ title: About
       <article>
         <div class="clearfix">{{ content }}</div>
 
-        <!-- CV Content -->
-        <div class="cv">
-          {% assign data_source = site.data.cv | default: site.data.resume %}
-          {% for entry in data_source %}
-            {% assign title = entry.title | default: entry[0] %}
-            {% assign contents = entry.contents | default: entry[1] %}
-            {% if title == 'meta' or contents == empty %}{% continue %}{% endif %}
-            <a class="anchor" id="{{ title }}"></a>
-            <div class="card mt-3 p-3">
-              <h3 class="card-title font-weight-medium">{{ title | capitalize }}</h3>
-              <div>
-                {% if entry.type == 'list' %}
-                  {% include cv/list.liquid %}
-                {% elsif entry.type == 'map' %}
-                  {% include cv/map.liquid %}
-                {% elsif entry.type == 'nested_list' %}
-                  {% include cv/nested_list.liquid %}
-                {% elsif entry.type == 'time_table' %}
-                  {% include cv/time_table.liquid %}
-                {% elsif entry.type == 'list_groups' %}
-                  {% include cv/list_groups.liquid %}
+<!-- CV Content -->
+<div class="cv">
+  {% assign data_source = site.data.cv | default: site.data.resume %}
+  <div class="row">
+    {% for entry in data_source %}
+      {% assign title = entry.title | default: entry[0] %}
+      {% assign contents = entry.contents | default: entry[1] %}
+      {% if title == 'meta' or contents == empty %}{% continue %}{% endif %}
+
+      <div class="col-md-6">
+        <a class="anchor" id="{{ title }}"></a>
+        <div class="card mt-3 p-3 h-100">
+          <h3 class="card-title font-weight-medium">{{ title | capitalize }}</h3>
+          <div>
+            {% if entry.type == 'list' %}
+              {% include cv/list.liquid %}
+            {% elsif entry.type == 'map' %}
+              {% include cv/map.liquid %}
+            {% elsif entry.type == 'nested_list' %}
+              {% include cv/nested_list.liquid %}
+            {% elsif entry.type == 'time_table' %}
+              {% include cv/time_table.liquid %}
+            {% elsif entry.type == 'list_groups' %}
+              {% include cv/list_groups.liquid %}
+            {% else %}
+              {% capture section_key %}{{ title | downcase }}{% endcapture %}
+              {% case section_key %}
+                {% when 'basics' %}
+                  {% include resume/basics.liquid %}
+                {% when 'education' %}
+                  {% include resume/education.liquid %}
+                {% when 'work' %}
+                  {% include resume/work.liquid %}
+                {% when 'volunteer' %}
+                  {% include resume/volunteer.liquid %}
+                {% when 'projects' %}
+                  {% include resume/projects.liquid %}
+                {% when 'awards' %}
+                  {% include resume/awards.liquid %}
+                {% when 'skills' %}
+                  {% include resume/skills.liquid %}
+                {% when 'publications' %}
+                  {% include resume/publications.liquid %}
+                {% when 'languages' %}
+                  {% include resume/languages.liquid %}
+                {% when 'interests' %}
+                  {% include resume/interests.liquid %}
+                {% when 'certificates' %}
+                  {% include resume/certificates.liquid %}
+                {% when 'references' %}
+                  {% include resume/references.liquid %}
                 {% else %}
-                  {% capture section_key %}{{ title | downcase }}{% endcapture %}
-                  {% case section_key %}
-                    {% when 'basics' %}
-                      {% include resume/basics.liquid %}
-                    {% when 'education' %}
-                      {% include resume/education.liquid %}
-                    {% when 'work' %}
-                      {% include resume/work.liquid %}
-                    {% when 'volunteer' %}
-                      {% include resume/volunteer.liquid %}
-                    {% when 'projects' %}
-                      {% include resume/projects.liquid %}
-                    {% when 'awards' %}
-                      {% include resume/awards.liquid %}
-                    {% when 'skills' %}
-                      {% include resume/skills.liquid %}
-                    {% when 'publications' %}
-                      {% include resume/publications.liquid %}
-                    {% when 'languages' %}
-                      {% include resume/languages.liquid %}
-                    {% when 'interests' %}
-                      {% include resume/interests.liquid %}
-                    {% when 'certificates' %}
-                      {% include resume/certificates.liquid %}
-                    {% when 'references' %}
-                      {% include resume/references.liquid %}
-                    {% else %}
-                      {{ contents }}
-                  {% endcase %}
-                {% endif %}
-              </div>
-            </div>
-          {% endfor %}
+                  {{ contents }}
+              {% endcase %}
+            {% endif %}
+          </div>
         </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 
         {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
           {% include newsletter.liquid center=true %}
