@@ -23,23 +23,48 @@ module ExternalPosts
     end
 
     def fetch_from_rss(site, src)
-      response = HTTParty.get(
-        src['rss_url'],
-        headers: {
-          "User-Agent" => "Ruby/#{RUBY_VERSION} (Jekyll ExternalPosts Plugin; #{src['name']})"
-        },
-        timeout: 10
-      )
+      url = src['rss_url']
+      name = src['name'].to_s.downcase.gsub(/[^a-z0-9]+/, '-').gsub(/^-+|-+$/, '')
+      cache_dir = File.join(site.source, "_data", "rss_cache")
+      FileUtils.mkdir_p(cache_dir)
+      cache_path = File.join(cache_dir, "#{name}.xml")
 
-      return unless response.success?
-      xml = response.body
-      return if xml.nil? || xml.strip.empty?
+      Jekyll.logger.info "Fetching RSS feed:", url
 
-      feed = Feedjira.parse(xml)
-      return if feed.nil? || feed.entries.nil?
+      begin
+        response = HTTParty.get(
+          url,
+          headers: {
+            "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Accept" => "application/rss+xml",
+            "Referer" => site.config['url'] || "https://example.com"
+          },
+          timeout: 10
+        )
 
-      process_entries(site, src, feed.entries)
+        if response.success? && !response.body.strip.empty?
+          File.write(cache_path, response.body)
+          Jekyll.logger.info "RSS feed cached at:", cache_path
+        else
+          Jekyll.logger.warn "Failed to fetch feed (status: #{response.code}), using cache"
+        end
+      rescue => e
+        Jekyll.logger.warn "Fetch error: #{e.message}, using cache"
+      end
+
+      if File.exist?(cache_path)
+        xml = File.read(cache_path)
+        feed = Feedjira.parse(xml)
+        if feed&.entries&.any?
+          process_entries(site, src, feed.entries)
+        else
+          Jekyll.logger.warn "Parsed feed is empty for:", name
+        end
+      else
+        Jekyll.logger.error "No cache available for feed:", name
+      end
     end
+
 
     def process_entries(site, src, entries)
       entries.each do |e|
