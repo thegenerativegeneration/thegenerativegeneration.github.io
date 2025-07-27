@@ -3,6 +3,9 @@ layout: post
 title:  "Control - How to Steer Diffusion Models"
 date:   2023-03-05 16:08:44 +0100
 categories: diffusion control stablediffusion
+description: "How can I steer generative models like Stable Diffusion?"
+toc: true
+thumbnail: /assets/img/blog/controlling_diffusion/target_philipp.png
 ---
 
 On this page, I have compiled several methods to steer the diffusion process. If not otherwise stated, I present the methods as they are used with Stable Diffusion.
@@ -48,7 +51,7 @@ The "zero convolution" is simply a convolution with all weights set to zero. Thi
 Before passing conditioning information through the copied layers, it is encoded by an additional encoder model.
 
 
-![ControlNet Architecture](/assets/img/blog/controlling_diffusion/controlnet.png)
+<img src="/assets/img/blog/controlling_diffusion/controlnet.png" alt="ControlNet Architecture" style="width: 100%; height: auto;">
 
 - increases memory size (23%) and time (34%) for training
 - not lightweight, but not as heavy as cross-attention or concatenation on conditioning information
@@ -63,7 +66,7 @@ The biggest advantage of T2I over ControlNet I see is composability. You can use
 
 An interesting application of T2I-Adapter in the paper is sequential editing where a T2I-Adapter is applied to an image multiple times.
 
-![T2I-Adapter Architecture](/assets/img/blog/controlling_diffusion/sequential_edit_t2i_adapter.png)
+<img src="/assets/img/blog/controlling_diffusion/sequential_edit_t2i_adapter.png" alt="T2I-Adapter Architecture" style="width: 100%; height: auto;">
 
 - lightweight (300MB)
 - composability
@@ -93,7 +96,7 @@ generating faces that look like a groundtruth face.
 The generated face was very similar to the ground truth face but not perfect. By itself, it is probably not enough. The authors of [DifFace](https://arxiv.org/abs/2212.06512) use this method combined with a learned face conditioning to improve the generation result.
 
 This is generated me:
-![Generated me](/assets/img/blog/controlling_diffusion/target_philipp.png)
+<img src="/assets/img/blog/controlling_diffusion/target_philipp.png" alt="Generated me" style="width: 100%; height: auto;">
 
 - no increase in model size
 - no retraining
