@@ -44,6 +44,8 @@
   --global-danger-block-title: #c00;
 
   --global-neon-glow: 1px 1px 2px #{$neon-glow-color}, 0 0 25px #{$neon-glow-color}, 0 0 5px #{$neon-glow-color};
+// no blur:
+  --global-neon-drop: 1px 1px #{$neon-glow-color}; 
 
   #light-toggle-system {
     padding-left: 10px;

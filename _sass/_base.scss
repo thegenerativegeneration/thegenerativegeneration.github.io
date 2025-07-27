@@ -27,7 +27,7 @@ h5,
 h6 {
   font-family: 'VT323', monospace;
   // glow
-  text-shadow: var(--global-neon-glow);
+  text-shadow: var(--global-neon-drop);
 }
 
 p,
@@ -277,6 +277,7 @@ ul.task-list input[type="checkbox"] {
 
   a:hover {
     color: var(--global-hover-color);
+    text-shadow: var(--global-neon-glow);
   }
 
   .dropdown-divider {
@@ -295,11 +296,12 @@ ul.task-list input[type="checkbox"] {
 
 .navbar.navbar-light {
   font-family: 'VT323', monospace;
-  text-shadow: var(--global-neon-glow);
+  text-shadow: var(--global-neon-drop);
 
   a {
     &:hover {
       text-decoration: none;
+      text-shadow: var(--global-neon-glow);
     }
   }
 
@@ -421,8 +423,10 @@ ul.task-list input[type="checkbox"] {
 .social {
   text-align: center;
 
+
   .contact-icons {
     font-size: 4rem;
+    text-shadow: var(--global-neon-drop);
 
     a {
       img {
@@ -450,11 +454,19 @@ ul.task-list input[type="checkbox"] {
       &:hover {
         text-decoration: none;
 
+        color: var(--global-theme-color);
+        //filter: blur(1px);
+        transform: scale(1.2);
+        text-shadow: var(--global-neon-glow);
+        transition: all 0.3s ease-in-out;
+
         i::before {
           color: var(--global-theme-color);
         }
       }
+      
     }
+
   }
 
   .contact-note {
