@@ -8,7 +8,11 @@ category: exhibited
 related_publications: true
 ---
 
-**Deus in Machina was an art installation combining art, religion, and AI. An AI avatar based on my face, voice, and mannerisms took on the role of Jesus Christ and interacted with people. The installation was placed within the confessional booth of a church. People interacted with their voice through the latticed opening between the booth’s two compartments.**
+## Appearances
+- **Sep-Oct 2024**. Exhibition at Peterskapelle (Peter's Chapel), Lucerne, Switzerland.
+- **Oct 2025-Feb 2026**. Group exhibition at Artist House Vienna, Austria.
+
+**Deus in Machina is an art installation combining art, religion, and AI. An AI avatar based on the artist's face, voice, and mannerisms takes on the role of Jesus Christ and interacts with people. The installation was placed within the confessional booth of a church. People interact with their voice through a latticed window between the booth’s two compartments.**
 
 The project poses questions about religion in the face of artificial intelligence that increasingly surpasses humans’ in places. It presents an exploration of the self in a time when indistinguishable digital copies of ourselves can be created. It previews a time to come when we may talk more to the artificial than to the real humans and cautions against it.
 People from all walks of life were drawn together to discuss the recent rapid advance of technology and the role of faith in our lives.

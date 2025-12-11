@@ -26,6 +26,4 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
-is a researcher, software developer, and artist based in Lucerne, Switzerland.
-
-His focus is on interactive installations through the use of generative AI.
+is a researcher, software developer, and interactive media artist based in Lucerne, Switzerland.

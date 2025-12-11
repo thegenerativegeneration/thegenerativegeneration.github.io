@@ -13,7 +13,6 @@
       institution: University of Applied Sciences and Arts, Lucerne, Switzerland
       year: 2024
       description:
-        - Focus on data science.
         - Project 1 "Leveraging Pre-Trained Latent Diffusion Models for Video Generation".
         - Project 2 "Real-time Rendering of Learned 3D Scenes".
         - Thesis "Prototype of a Conversational Agent for Spiritual Consultation".
@@ -28,9 +27,9 @@
       institution: University of Applied Sciences and Arts, Lucerne, Switzerland
       year: 2023-now
       description:
-        - Research on the use of Large Language Models in interactive experiences.
+        - Research on the use of AI in interactive experiences.
         - Development of prototypes for interactive installations.
-        - Applied 3D reconstruction techniques.
+        - Applied 3D reconstruction.
     - title: Software Engineer
       institution: Seven Principles, Frankfurt, Germany
       year: 2018-2023
@@ -50,6 +49,13 @@
         - Block seminar on the use of Large Language Models in interactive experiences at the University of Applied Sciences and Arts, Lucerne, Switzerland.
         - Multiple courses on generative AI for creative professionals at the Swiss union for media and communications "Syndicom".
 
+- title: Artworks
+  type: time_table
+  contents:
+    - title: Deus in Machina
+      year: 2024
+      description:
+        - An AI avatar takes on the role of Jesus Christ and interacts with people within a church.
 
 #- title: Academic Interests
 #  type: nested_list
