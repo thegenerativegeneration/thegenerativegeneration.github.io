@@ -53,6 +53,12 @@
               </tbody>
             </table>
           {% endif %}
+          {% if content.event %}
+            <div class="ml-1 ml-md-4 event">
+              <i class="fa-solid fa-calendar-days iconevent"></i>
+              {{ content.event }}
+            </div>
+          {% endif %}
           {% if content.maindescription %}
             <div class="ml-1 ml-md-4">{{ content.maindescription }}</div>
           {% endif %}

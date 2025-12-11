@@ -13,12 +13,14 @@
       institution: University of Applied Sciences and Arts, Lucerne, Switzerland
       year: 2024
       description:
-        - Project 1 "Leveraging Pre-Trained Latent Diffusion Models for Video Generation".
+        - Project 1 "Leveraging Pre-Trained Latent Diffusion Models for Video Generation"
         - Project 2 "Real-time Rendering of Learned 3D Scenes".
-        - Thesis "Prototype of a Conversational Agent for Spiritual Consultation".
+        - Thesis "Prototype of a Conversational Agent for Spiritual Consultation"
     - title: Bachelor of Science in Computer Science
       institution: University of Applied Sciences, Frankfurt, Germany
       year: 2018
+      description:
+        - Thesis "Reinforcement Learning in the Context of Financial Time Series Applications"
 
 - title: Work Experience
   type: time_table
@@ -37,17 +39,38 @@
       institution: Forum 8, Miyazaki, Japan
       year: 2017-2018
 
-
+- title: Conferences & Talks
+  type: time_table
+  contents:
+    - title: Session Chair & Paper Presentation
+      event: 12th International Conference on Digital and Interactive Arts (Artech 2025)
+      year: 2025
+      location: Braga, PT
+    - title: Poster Presentation
+      event: 17th International Conference on Quality of Multimedia Experience (QoMEX 2025)
+      year: 2025
+      location: Madrid, ES
+    - title: Paper Presentation
+      event: ACM International Conference on Interactive Media Experiences (IMX 2025)
+      year: 2025
+      location: Niteroí, BR
+    - title: Public Panel Discussion, "AI Jesus, Robot Priests and Us"
+      event: "Conference: AI Hopes, Fears and Realities: An Interdisciplinary Dialogue"
+      year: 2025
+      location: Zurich, CH
 - title: Teaching
   type: time_table
   contents:
     - year: 2026
-      items:
-        - Block seminar in applied 3D reconstruction in the Certificate of Advanced Studies Augmented & Virtual Reality Business Integration at the University of Applied Sciences and Arts, Lucerne, Switzerland.
+      institution: Syndicom
+      title: Courses on generative AI for creative professionals
     - year: 2025
-      items:
-        - Block seminar on the use of Large Language Models in interactive experiences at the University of Applied Sciences and Arts, Lucerne, Switzerland.
-        - Multiple courses on generative AI for creative professionals at the Swiss union for media and communications "Syndicom".
+      description:
+      institution: University of Applied Sciences and Arts, Lucerne, Switzerland
+      title: Seminar on the use of Large Language Models in interactive experiences
+    - year: 2025
+      institution: Syndicom
+      title: Courses on generative AI for creative professionals
 
 - title: Artworks
   type: time_table
@@ -55,8 +78,22 @@
     - title: Deus in Machina
       year: 2024
       description:
-        - An AI avatar takes on the role of Jesus Christ and interacts with people within a church.
+        - An AI avatar takes on the role of Jesus Christ and interacts with people within a church
 
+- title: Media Appearances
+  type: time_table
+  contents:
+    - title: "Quand l'IA se prend pour Dieu"
+      year: 2025
+      institution: Canal Alpha
+      description: TV documentary interview about "Deus in Machina". <a href="https://canalalpha.ch/play/ma-foi-cest-comme-ca/episode/40069/quand-lia-se-prend-pour-dieu" target="_blank">Watch here</a>.
+      location: Switzerland
+    - title: "AI Jesus avatar tests man's faith in machines and the divine"
+      year: 2024
+      institution: Associated Press
+      description: TV interview about "Deus in Machina". <a href="https://apnews.com/article/artificial-intelligence-chatbot-jesus-lucerne-catholic-66268027fbcf4b48972d1d62541f0b16" target="_blank">Watch here</a>.
+      location: Global
+  
 #- title: Academic Interests
 #  type: nested_list
 #  contents:
