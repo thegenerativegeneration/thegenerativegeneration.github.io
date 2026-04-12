@@ -85,6 +85,11 @@ ninja.data = [{
           description: "A mannequin audio visualization.",
           section: "Experiments",handler: () => {
               window.location.href = "/experiments/two/";
+            },},{id: "experiments-morse-chatbot",
+          title: 'Morse Chatbot',
+          description: "A chatbot you can only communicate with via Morse code keyboard taps. Runs an LLM entirely in your browser via WebGPU — no server needed.",
+          section: "Experiments",handler: () => {
+              window.location.href = "/experiments/morse-chatbot/";
             },},{id: "news-a-simple-inline-announcement",
           title: 'A simple inline announcement.',
           description: "",
