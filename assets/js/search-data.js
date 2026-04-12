@@ -87,7 +87,7 @@ ninja.data = [{
               window.location.href = "/experiments/two/";
             },},{id: "experiments-morse-chatbot",
           title: 'Morse Chatbot',
-          description: "A chatbot you can only communicate with via Morse code keyboard taps. Runs an LLM entirely in your browser via WebGPU — no server needed.",
+          description: "",
           section: "Experiments",handler: () => {
               window.location.href = "/experiments/morse-chatbot/";
             },},{id: "news-a-simple-inline-announcement",
