@@ -29,13 +29,13 @@
       institution: University of Applied Sciences and Arts, Lucerne, Switzerland
       year: 2023-now
       description:
-        - Research on the use of AI in interactive experiences.
-        - Development of prototypes for interactive installations.
-        - Applied 3D reconstruction.
-    - title: Software Engineer
+        - Research on the use of AI in interactive experiences
+        - Development of prototypes for interactive installations
+        - Applied 3D reconstruction
+    - title: AI & Software Engineer
       institution: Seven Principles, Frankfurt, Germany
       year: 2018-2023
-    - title: Software Engineer
+    - title: AI & Software Engineer
       institution: Forum 8, Miyazaki, Japan
       year: 2017-2018
 
@@ -62,7 +62,7 @@
   type: time_table
   contents:
     - year: 2026
-      institution: Syndicom
+      institution: Syndicom; Visualisierungsakademie
       title: Courses on generative AI for creative professionals
     - year: 2025
       description:
@@ -76,9 +76,11 @@
   type: time_table
   contents:
     - title: Deus in Machina
-      year: 2024
+      year: 2024–2026
       description:
         - An AI avatar takes on the role of Jesus Christ and interacts with people within a church
+        - "Exhibited: <a href='https://www.kathluzern.ch/mein-engagement/deus-in-machina' target='_blank'>Peterskapelle, Lucerne, CH</a> (Sep–Nov 2024)"
+        - "Exhibited: <a href='https://www.kuenstlerhaus.at/besuch/kalender/ausstellung/475/du-sollst-dir-ein-bild-machen.html' target='_blank'>Künstlerhaus Wien, Vienna, AT</a> (Oct 2025–Feb 2026)"
 
 - title: Media Appearances
   type: time_table
