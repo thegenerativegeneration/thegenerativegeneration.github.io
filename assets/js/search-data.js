@@ -70,12 +70,7 @@ ninja.data = [{
             window.location.href = "/blog/2023/controlling-diffusion/";
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
-            },},{id: "experiments-voice-animation-2023",
+      },{id: "experiments-voice-animation-2023",
           title: 'Voice Animation (2023)',
           description: "A simple audio visualization.",
           section: "Experiments",handler: () => {
