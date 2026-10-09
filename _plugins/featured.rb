@@ -30,7 +30,7 @@ module Jekyll
         'title' => doc.data['title'].to_s.sub(/\s*\(\d{4}\)\z/, ''),
         'url' => doc.data['redirect'] || doc.url,
         'img' => doc.data['img'],
-        'meta' => (doc.data['featured_meta'] || doc.data['year']).to_s,
+        'meta' => (doc.data['meta'] || doc.data['year']).to_s,
         'description' => doc.data['description'],
         'order' => order(doc.data['featured_order']),
         'external' => false

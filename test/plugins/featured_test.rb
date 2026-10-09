@@ -42,7 +42,7 @@ class FeaturedGeneratorTest < Minitest::Test
 
   def test_sorts_across_kinds_by_featured_order
     doc('projects', 'deus', 'title' => 'Deus in Machina (2024)', 'featured' => true, 'featured_order' => 1,
-                            'featured_meta' => '2024–2026 · Lucerne', 'img' => '/assets/img/d.jpg')
+                            'meta' => '2024–2026 · Lucerne', 'img' => '/assets/img/d.jpg')
     doc('experiments', 'two', 'title' => 'Voice Puppetry (2023)', 'featured' => true, 'year' => 2023)
     write('_bibliography/papers.bib', <<~BIB)
       @inproceedings{p1, title={ VR Planica: Long }, featured={true}, featured_order={2},

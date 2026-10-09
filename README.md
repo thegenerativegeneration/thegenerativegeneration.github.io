@@ -26,7 +26,7 @@ Requires Ruby (version in `.ruby-version`) and ImageMagick.
 
 ### Featuring items on the home page
 
-Front matter on a work or experiment: `featured: true`, optional `featured_order: 1` and `featured_meta: "2024 · Lucerne"`.
+Front matter on a work or experiment: `featured: true`, optional `featured_order: 1`. The mono line under a work's title and on its cards comes from `meta: "2024–2026 · Lucerne"` (falls back to `year`).
 BibTeX entry: `featured={true}`, optional `featured_order={2}`, `featured_title={Short title}`, `featured_description={One line.}`.
 
 ## Design

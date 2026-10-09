@@ -7,7 +7,7 @@ importance: 1
 category: exhibited
 featured: true
 featured_order: 1
-featured_meta: "2024–2026 · Lucerne, Vienna"
+meta: "2024–2026 · Lucerne, Vienna"
 related_publications: true
 ---
 

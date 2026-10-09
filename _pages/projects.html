@@ -14,7 +14,8 @@ display_categories: [exhibited, in preparation, past]
       <h2 class="section-label">{{ category }}</h2>
       <div class="card-grid">
         {% for p in items %}
-          {% include card.liquid url=p.url img=p.img title=p.title meta=p.year description=p.description %}
+          {% assign card_meta = p.meta | default: p.year %}
+          {% include card.liquid url=p.url img=p.img title=p.title meta=card_meta description=p.description %}
         {% endfor %}
       </div>
     </section>
