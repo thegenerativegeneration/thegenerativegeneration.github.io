@@ -1,0 +1,51 @@
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 14mm;
+  }
+
+  :root {
+    --bg: #fff;
+    --text: #111;
+    --head: #000;
+    --accent: #000;
+    --muted: #444;
+    --rule: #bbb;
+    --glow: none;
+  }
+
+  body {
+    font-size: 10.5pt;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .cv-print {
+    display: none !important;
+  }
+
+  .site-main {
+    padding: 0;
+  }
+
+  .cv-print-only {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 9pt;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cv-entry {
+    break-inside: avoid;
+  }
+
+  .section-label {
+    break-after: avoid;
+    margin-top: 8mm;
+  }
+}

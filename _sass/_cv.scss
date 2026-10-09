@@ -1,0 +1,66 @@
+@use "breakpoints" as bp;
+
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.cv-print-only {
+  display: none;
+}
+
+.cv-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--rule);
+
+  @media (max-width: bp.$sm - 0.02px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-1);
+  }
+}
+
+.cv-entry__when {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-entry__year {
+  color: var(--accent);
+}
+
+.cv-entry__where {
+  color: var(--muted);
+}
+
+.cv-entry__title {
+  font-size: var(--step-0);
+  font-weight: 500;
+  margin: 0 0 var(--space-1);
+}
+
+.cv-entry__org {
+  margin: 0 0 var(--space-1);
+}
+
+.cv-entry__items,
+.cv-entry__desc {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.cv-entry__items {
+  padding-left: 1.1em;
+}
