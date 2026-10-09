@@ -1,3 +1,4 @@
+require 'digest/md5'
 require_relative '../test_helper'
 
 class StyleTest < Minitest::Test
@@ -28,6 +29,14 @@ class StyleTest < Minitest::Test
 
   def test_focus_style_survives_purge
     assert_match(/:focus-visible\{outline:2px solid var\(--accent\)/, css)
+  end
+
+  def test_css_url_changes_when_styles_change
+    root = File.expand_path('../..', __dir__)
+    sources = (Dir.glob(File.join(root, '_sass', '**', '*.scss')).sort + [File.join(root, 'assets', 'css', 'main.scss')])
+    expected = Digest::MD5.hexdigest(sources.map { |f| File.read(f) }.join)
+    href = page('/').at_css('link[rel=stylesheet][href*="main.css"]')['href']
+    assert_equal "/assets/css/main.css?#{expected}", href
   end
 
   def test_footer_is_static_and_has_links
