@@ -26,6 +26,12 @@ class BlogTest < Minitest::Test
     assert post.at_css('.page-header .meta').text.include?('min read')
   end
 
+  def test_headings_inside_prose_have_no_glow
+    assert_match(/\.prose h1:not\(\.page-title\)\{[^}]*text-shadow:\s*none/, css)
+    title = page('/blog/2023/controlling-diffusion/').at_css('article.prose h1.page-title')
+    assert title, 'post title stays a page title'
+  end
+
   def test_code_is_highlighted_with_dark_theme
     assert page('/blog/2023/controlling-diffusion/').at_css('.highlight')
     assert_match(/\.highlight/, css)
