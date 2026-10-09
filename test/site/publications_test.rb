@@ -8,7 +8,8 @@ class PublicationsTest < Minitest::Test
   end
 
   def test_entries_use_pub_markup
-    assert_equal 7, pubs.css('.bibliography > li .pub').size
+    bib_entries = File.read(File.expand_path('../../_bibliography/papers.bib', __dir__)).scan(/^@\w+\{/).size
+    assert_equal bib_entries, pubs.css('.bibliography > li .pub').size
     assert pubs.css('.pub__title').all? { |t| !t.text.strip.empty? }
   end
 
