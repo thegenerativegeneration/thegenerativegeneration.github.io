@@ -143,6 +143,8 @@ newsletter:
 # Collections
 # -----------------------------------------------------------------------------
 
+experiments_exclude: [mhg-scriptorium] # experiment folders in _experiments_src/public not shown on the site
+
 collections:
   books:
     output: true
