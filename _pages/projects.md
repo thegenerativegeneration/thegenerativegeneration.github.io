@@ -4,7 +4,7 @@ title: works
 permalink: /works/
 description: A collection of my creative works.
 nav: true
-nav_order: 2
+nav_order: 1
 display_categories: [exhibited, in preparation, past]
 horizontal: false
 ---

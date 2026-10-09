@@ -1,0 +1,42 @@
+:root {
+  --bg: #07110b;
+  --text: #cfe6d2;
+  --head: #c6f7bd;
+  --accent: #ff7ac2;
+  --muted: #86a08c;
+  --rule: #26402e;
+  --glow: 0 0 8px rgba(198, 247, 189, 0.35);
+
+  --font-display: "Pixelify Sans", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  // modular scale, ratio 1.25
+  --step--2: 0.64rem;
+  --step--1: 0.8rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.563rem;
+  --step-3: 1.953rem;
+  --step-4: 2.441rem;
+  --step-5: 3.052rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --content-max: 1100px;
+  --measure: 68ch;
+  --gutter: 20px;
+}
+
+@media (min-width: 576px) {
+  :root {
+    --gutter: 32px;
+  }
+}

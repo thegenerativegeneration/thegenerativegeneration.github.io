@@ -1,53 +1,25 @@
-/******************************************************************************
- * Content
- ******************************************************************************/
-
-body {
-  padding-bottom: 70px;
-  color: var(--global-text-color);
-  background-color: var(--global-bg-color);
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    scroll-margin-top: 66px;
-  }
-}
-
-body.fixed-top-nav {
-  // Add some padding for the nav-bar.
-  padding-top: 56px;
-}
-
-body.sticky-bottom-footer {
-  // Remove padding below footer.
-  padding-bottom: 0;
-}
-
 .container {
-  max-width: $max-content-width;
+  max-width: var(--content-max);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
-// Profile
-.profile {
-  img {
-    width: 100%;
-  }
+.site-main {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-16);
+  min-height: 70vh;
 }
 
-// TODO: redefine content layout.
+.page-header {
+  margin-bottom: var(--space-8);
+}
 
-/******************************************************************************
- * Publications
- ******************************************************************************/
+.page-title {
+  font-size: var(--step-4);
+}
 
-// TODO: redefine publications layout.
-
-/*****************************************************************************
-* Projects
-*****************************************************************************/
-
-// TODO: redefine projects layout.
+.lede {
+  max-width: var(--measure);
+  font-size: var(--step-1);
+  line-height: 1.5;
+}

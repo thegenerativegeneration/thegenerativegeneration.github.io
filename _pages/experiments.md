@@ -4,7 +4,7 @@ permalink: /experiments/
 title: experiments
 description: Creative experiments, and projects to be.
 nav: true
-nav_order: 5
+nav_order: 3
 ---
 
 

@@ -6,7 +6,6 @@ description: >
   Software developer, researcher, and artist based in Lucerne, Switzerland.
 keywords: portfolio, interactive media, artificial intelligence, gaussian splatting
 lang: en
-max_width: 1100px # read by the old main.scss; removed with it in Task 6
 icon: favicon.ico # in /assets/img/
 url: https://philipphaslbauer.com
 baseurl:

@@ -1,0 +1,8 @@
+{% assign s = site.data.socials %}
+<ul class="text-links">
+  {% if s.email %}<li><a href="mailto:{{ s.email | encode_email }}">email</a></li>{% endif %}
+  {% if s.instagram_id %}<li><a href="https://instagram.com/{{ s.instagram_id }}" rel="me">instagram</a></li>{% endif %}
+  {% if s.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{ s.linkedin_username }}" rel="me">linkedin</a></li>{% endif %}
+  {% if s.scholar_userid %}<li><a href="https://scholar.google.com/citations?user={{ s.scholar_userid }}">scholar</a></li>{% endif %}
+  <li><a href="{{ '/cv/' | relative_url }}">cv</a></li>
+</ul>
