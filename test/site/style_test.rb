@@ -26,6 +26,10 @@ class StyleTest < Minitest::Test
     refute_match(/font-family:\s*["']?(Font Awesome|tabler-icons|Academicons)/i, css)
   end
 
+  def test_focus_style_survives_purge
+    assert_match(/:focus-visible\{outline:2px solid var\(--accent\)/, css)
+  end
+
   def test_footer_is_static_and_has_links
     footer = page('/').at_css('footer.site-footer')
     assert footer

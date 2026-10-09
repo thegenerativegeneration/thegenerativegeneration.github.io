@@ -26,14 +26,12 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y imagemagick
       - name: Build
         run: JEKYLL_ENV=production bundle exec jekyll build
-      - name: Test
+      - name: Purge unused CSS
+        run: npx --yes purgecss@8.0.0 -c purgecss.config.js
+      - name: Test (against the purged output that gets deployed)
         run: |
           bundle exec ruby -Itest -e 'Dir["test/**/*_test.rb"].sort.each { |f| require File.expand_path(f) }'
           bundle exec ruby test/proof.rb
-      - name: Purge unused CSS
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
       - name: Deploy
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
