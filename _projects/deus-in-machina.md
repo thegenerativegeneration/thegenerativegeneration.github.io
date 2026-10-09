@@ -5,6 +5,9 @@ img: /assets/img/projects/deus-in-machina/thumbnail.jpg
 description: A church installation with an AI avatar of Jesus Christ.
 importance: 1
 category: exhibited
+featured: true
+featured_order: 1
+featured_meta: "2024–2026 · Lucerne, Vienna"
 related_publications: true
 ---
 

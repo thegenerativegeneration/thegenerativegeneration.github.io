@@ -1,0 +1,44 @@
+@use "breakpoints" as bp;
+
+.hero {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: end;
+
+  @media (max-width: bp.$md - 0.02px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.hero__portrait {
+  @media (max-width: bp.$md - 0.02px) {
+    max-width: 160px;
+  }
+}
+
+.hero__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.display-name {
+  font-size: var(--step-5);
+  line-height: 1;
+  margin-bottom: var(--space-3);
+
+  @media (max-width: bp.$sm - 0.02px) {
+    font-size: var(--step-4);
+  }
+}
+
+.hero__bio p {
+  max-width: 34em;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  margin: 0;
+}
