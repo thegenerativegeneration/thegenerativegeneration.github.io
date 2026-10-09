@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<section class="hero">
+  {% if page.portrait %}
+    {% assign portrait = page.portrait | prepend: '/assets/img/' %}
+    <div class="hero__portrait">
+      {% include figure.liquid path=portrait sizes="(min-width: 768px) 220px, 160px" alt="Portrait of Philipp Haslbauer" class="hero__img" loading="eager" %}
+    </div>
+  {% endif %}
+  <div class="hero__text">
+    <h1 class="display-name">{{ site.first_name }} {{ site.last_name }}</h1>
+    <div class="hero__bio">{{ content }}</div>
+    {% include links.liquid %}
+  </div>
+</section>
+
+{% if site.data.featured.size > 0 %}
+  <section class="featured" aria-labelledby="featured-label">
+    <h2 class="section-label" id="featured-label">Selected</h2>
+    <div class="card-grid">
+      {% for item in site.data.featured %}
+        {% include card.liquid url=item.url img=item.img kind=item.kind title=item.title meta=item.meta description=item.description external=item.external %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

@@ -1,127 +1,44 @@
 ---
 layout: default
 ---
-{% unless site.data.resume %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            {% if page.cv_pdf contains '://' %}
-              href="{{ page.cv_pdf }}"
-            {% else %}
-              href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
-            {% endif %}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-          >
-            <i class="fa-solid fa-file-pdf"></i>
-          </a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
+<header class="page-header cv-header">
+  <div>
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p class="cv-print-only">{{ site.first_name }} {{ site.last_name }} · {{ site.url | remove: 'https://' }}</p>
+  </div>
+  <button type="button" class="chip cv-print" onclick="window.print()">Download PDF</button>
+</header>
 
-    <article>
-      <div class="cv">
-        {% for entry in site.data.cv %}
-          <a class="anchor" id="{{ entry.title }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
-            <div>
-              {% if entry.type == 'list' %}
-                {% include cv/list.liquid %}
-              {% elsif entry.type == 'map' %}
-                {% include cv/map.liquid %}
-              {% elsif entry.type == 'nested_list' %}
-                {% include cv/nested_list.liquid %}
-              {% elsif entry.type == 'time_table' %}
-                {% include cv/time_table.liquid %}
-              {% elsif entry.type == 'list_groups' %}
-                {% include cv/list_groups.liquid %}
-              {% else %}
-                {{ entry.contents }}
+<div class="cv">
+  {% for section in site.data.cv %}
+    {% if section.contents == nil or section.contents == empty %}{% continue %}{% endif %}
+    <section class="cv-section" id="{{ section.title | slugify }}">
+      <h2 class="section-label">{{ section.title }}</h2>
+      <ol class="cv-list">
+        {% for item in section.contents %}
+          <li class="cv-entry">
+            <div class="cv-entry__when">
+              {% if item.year %}<span class="cv-entry__year">{{ item.year }}</span>{% endif %}
+              {% if item.location %}<span class="cv-entry__where">{{ item.location }}</span>{% endif %}
+            </div>
+            <div class="cv-entry__body">
+              {% if item.title %}<h3 class="cv-entry__title">{{ item.title }}</h3>{% endif %}
+              {% assign org = item.institution | default: item.event %}
+              {% if org %}<p class="cv-entry__org">{{ org }}</p>{% endif %}
+              {% if item.description %}
+                {% assign desc_start = item.description | jsonify | slice: 0 %}
+                {% if desc_start == '[' %}
+                  <ul class="cv-entry__items">
+                    {% for d in item.description %}{% if d %}<li>{{ d }}</li>{% endif %}{% endfor %}
+                  </ul>
+                {% else %}
+                  <p class="cv-entry__desc">{{ item.description }}</p>
+                {% endif %}
               {% endif %}
             </div>
-          </div>
+          </li>
         {% endfor %}
-      </div>
-    </article>
-  </div>
-{% else %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            {% if page.cv_pdf contains '://' %}
-              href="{{ page.cv_pdf }}"
-            {% else %}
-              href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
-            {% endif %}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-          >
-            <i class="fa-solid fa-file-pdf"></i>
-          </a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
-
-    <article>
-      <div class="cv">
-        {% for data in site.data.resume %}
-          {% if site.jsonresume and site.jsonresume.size > 0 %}
-            {% unless site.jsonresume contains data[0] %}
-              {% continue %}
-            {% endunless %}
-          {% endif %}
-          {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
-          <a class="anchor" id="{{ data[0] }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ data[0] | capitalize }}</h3>
-            <div>
-              {% case data[0] %}
-                {% when 'basics' %}
-                  {% include resume/basics.liquid %}
-                {% when 'education' %}
-                  {% include resume/education.liquid %}
-                {% when 'work' %}
-                  {% include resume/work.liquid %}
-                {% when 'volunteer' %}
-                  {% include resume/volunteer.liquid %}
-                {% when 'projects' %}
-                  {% include resume/projects.liquid %}
-                {% when 'awards' %}
-                  {% include resume/awards.liquid %}
-                {% when 'skills' %}
-                  {% include resume/skills.liquid %}
-                {% when 'publications' %}
-                  {% include resume/publications.liquid %}
-                {% when 'languages' %}
-                  {% include resume/languages.liquid %}
-                {% when 'interests' %}
-                  {% include resume/interests.liquid %}
-                {% when 'certificates' %}
-                  {% include resume/certificates.liquid %}
-                {% when 'references' %}
-                  {% include resume/references.liquid %}
-                {% else %}
-
-              {% endcase %}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </article>
-  </div>
-{% endunless %}
+      </ol>
+    </section>
+  {% endfor %}
+</div>

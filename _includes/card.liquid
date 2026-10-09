@@ -1,0 +1,22 @@
+{% if include.external %}
+  {% assign card_href = include.url %}
+{% else %}
+  {% assign card_href = include.url | relative_url %}
+{% endif %}
+<article class="card-item">
+  <a class="card-item__link" href="{{ card_href }}"{% if include.external %} target="_blank" rel="noopener"{% endif %}>
+    {% if include.img %}
+      {% if include.img contains '/assets/img/' %}
+        {% include figure.liquid path=include.img sizes="(min-width: 992px) 340px, (min-width: 576px) 45vw, 90vw" alt=include.title class="card-item__img" loading="lazy" %}
+      {% else %}
+        {% include figure.liquid path=include.img avoid_scaling=true alt=include.title class="card-item__img" loading="lazy" %}
+      {% endif %}
+    {% else %}
+      <div class="card-item__img card-item__img--empty" aria-hidden="true"></div>
+    {% endif %}
+    {% if include.kind %}<span class="badge-kind">{{ include.kind }}</span>{% endif %}
+    <h3 class="card-item__title">{{ include.title }}</h3>
+  </a>
+  {% if include.meta and include.meta != '' %}<p class="card-item__meta">{{ include.meta }}</p>{% endif %}
+  {% if include.description %}<p class="card-item__desc">{{ include.description }}</p>{% endif %}
+</article>

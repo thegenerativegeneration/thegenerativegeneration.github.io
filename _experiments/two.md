@@ -1,9 +1,12 @@
 ---
 title: Voice Puppetry (2023)
 description: A mannequin audio visualization.
-collection: demos
+featured: true
+featured_order: 3
+year: 2023
 layout: demo
 img: /assets/img/demos/two-preview.jpg
+importance: 4
 ---
 
 

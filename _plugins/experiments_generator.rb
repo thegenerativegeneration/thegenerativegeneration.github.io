@@ -28,8 +28,15 @@ module Jekyll
         return
       end
 
+      excluded = Array(site.config['experiments_exclude'])
+
       Dir.glob(File.join(src_dir, '*')).select { |f| File.directory?(f) }.sort.each do |exp_dir|
         name = File.basename(exp_dir)
+        if excluded.include?(name)
+          Jekyll.logger.info 'ExperimentsGenerator:', "skipping excluded experiment '#{name}'"
+          next
+        end
+
         meta = read_meta(exp_dir)
 
         add_experiment_doc(site, name, meta)
@@ -47,8 +54,7 @@ module Jekyll
 
       JSON.parse(File.read(meta_path))
     rescue JSON::ParserError => e
-      Jekyll.logger.warn 'ExperimentsGenerator:', "bad meta.json in #{dir}: #{e.message}"
-      {}
+      raise Jekyll::Errors::FatalException, "ExperimentsGenerator: invalid meta.json in #{dir}: #{e.message}"
     end
 
     def add_experiment_doc(site, name, meta)

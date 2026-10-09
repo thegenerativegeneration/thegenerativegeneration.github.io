@@ -1,0 +1,40 @@
+@use "breakpoints" as bp;
+
+.site-header .navbar {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.site-header__name,
+.site-header .nav-link {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--head);
+  text-decoration: none;
+}
+
+.site-header__name:hover,
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+  color: var(--accent);
+}
+
+.site-header .navbar-nav .nav-link {
+  padding: var(--space-1) var(--space-2);
+}
+
+.site-header .navbar-toggler {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--head);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: var(--space-1) var(--space-3);
+}
+
+@media (max-width: bp.$md - 0.02px) {
+  .site-header .navbar-nav {
+    align-items: flex-end;
+    padding-top: var(--space-4);
+  }
+}

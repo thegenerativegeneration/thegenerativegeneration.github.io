@@ -4,44 +4,33 @@ on:
   workflow_run:
     workflows: [Deploy site]
     types: [completed]
+  workflow_dispatch:
 
 jobs:
   check-links-on-site:
-    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    # available images: https://github.com/actions/runner-images#available-images
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby
+        with:
+          submodules: recursive
+      - name: Setup Ruby (version from .ruby-version)
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2.2"
           bundler-cache: true
-      - name: Update _config.yml ⚙️
-        uses: fjogeleit/yaml-update-action@main
-        with:
-          commitChange: false
-          valueFile: "_config.yml"
-          changes: |
-            {
-              "giscus.repo": "${{ github.repository }}",
-              "baseurl": ""
-            }
-      - name: Install and Build 🔧
-        run: |
-          sudo apt-get update && sudo apt-get install -y imagemagick
-          pip3 install --upgrade jupyter
-          export JEKYLL_ENV=production
-          bundle exec jekyll build
-      - name: Purge unused CSS 🧹
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
-      - name: Link Checker 🔗
-        uses: lycheeverse/lychee-action@v1.9.0
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+      - name: Build
+        run: JEKYLL_ENV=production bundle exec jekyll build
+      # Internal links are already checked by html-proofer in the deploy workflow;
+      # this job checks the outbound ones (press, papers, venues). News sites often
+      # answer bots with 403/429, which is not a broken link.
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
         with:
           fail: true
-          # only check local links
-          args: --offline --remap '_site(/?.*)/assets/(.*) _site/assets/$2' --verbose --no-progress '_site/**/*.html'
+          args: >-
+            --no-progress --max-retries 2 --accept 200,206,403,429
+            --exclude-path _site/assets
+            '_site/**/*.html'
