@@ -1,13 +1,15 @@
 // Publication entries: the abstract, award and bibtex panels toggle and are mutually exclusive.
 $(document).ready(function () {
   const panels = ["abstract", "award", "bibtex"];
-  $("a.abstract, a.award, a.bibtex").click(function () {
+  $(".pub .chips button.abstract, .pub .chips button.award, .pub .chips button.bibtex").click(function () {
     const clicked = panels.find((kind) => $(this).hasClass(kind));
-    const entry = $(this).parent().parent();
+    const entry = $(this).closest(".pub__body");
     panels.forEach((kind) => {
       const panel = entry.find(`.${kind}.hidden`);
-      if (kind === clicked) panel.toggleClass("open");
-      else panel.removeClass("open");
+      const toggle = entry.find(`.chips button.${kind}`);
+      const open = kind === clicked && !panel.hasClass("open");
+      panel.toggleClass("open", open);
+      toggle.attr("aria-expanded", String(open));
     });
   });
 });

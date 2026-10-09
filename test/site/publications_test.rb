@@ -34,6 +34,15 @@ class PublicationsTest < Minitest::Test
     pubs.css('.pub__authors').each { |a| refute_match(/\s,/, a.text.gsub(/\s+/, ' ')) }
   end
 
+  def test_panel_toggles_are_keyboard_buttons
+    toggles = pubs.css('.pub .chips .abstract, .pub .chips .bibtex, .pub .chips .award')
+    refute_empty toggles
+    toggles.each do |t|
+      assert_equal 'button', t.name
+      assert_equal 'false', t['aria-expanded']
+    end
+  end
+
   def test_filter_input_present
     assert pubs.at_css('input#bibsearch.bibsearch-form-input')
   end

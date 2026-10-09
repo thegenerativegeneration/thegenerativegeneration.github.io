@@ -84,11 +84,11 @@
     {% if entry.note %}<p class="pub__periodical">{{ entry.note }}</p>{% endif %}
 
     <div class="chips">
-      {% if entry.award %}<a class="award chip" role="button">{% if entry.award_name %}{{ entry.award_name }}{% else %}Awarded{% endif %}</a>{% endif %}
-      {% if entry.abstract %}<a class="abstract chip" role="button">Abstract</a>{% endif %}
+      {% if entry.award %}<button type="button" class="award chip" aria-expanded="false">{% if entry.award_name %}{{ entry.award_name }}{% else %}Awarded{% endif %}</button>{% endif %}
+      {% if entry.abstract %}<button type="button" class="abstract chip" aria-expanded="false">Abstract</button>{% endif %}
       {% if entry.doi %}<a class="chip" href="https://doi.org/{{ entry.doi | remove_first: 'https://doi.org/' }}">DOI</a>{% endif %}
       {% if entry.arxiv %}<a class="chip" href="https://arxiv.org/abs/{{ entry.arxiv }}">arXiv</a>{% endif %}
-      {% if entry.bibtex_show %}<a class="bibtex chip" role="button">BibTeX</a>{% endif %}
+      {% if entry.bibtex_show %}<button type="button" class="bibtex chip" aria-expanded="false">BibTeX</button>{% endif %}
       {% assign link_kinds = 'html,pdf,supp,poster,slides' | split: ',' %}
       {% for kind in link_kinds %}
         {% assign target = entry[kind] %}
