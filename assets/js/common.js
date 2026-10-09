@@ -1,1 +1,15 @@
-$(document).ready((function(){if($("a.abstract").click((function(){$(this).parent().parent().find(".abstract.hidden").toggleClass("open"),$(this).parent().parent().find(".award.hidden.open").toggleClass("open"),$(this).parent().parent().find(".bibtex.hidden.open").toggleClass("open")})),$("a.award").click((function(){$(this).parent().parent().find(".abstract.hidden.open").toggleClass("open"),$(this).parent().parent().find(".award.hidden").toggleClass("open"),$(this).parent().parent().find(".bibtex.hidden.open").toggleClass("open")})),$("a.bibtex").click((function(){$(this).parent().parent().find(".abstract.hidden.open").toggleClass("open"),$(this).parent().parent().find(".award.hidden.open").toggleClass("open"),$(this).parent().parent().find(".bibtex.hidden").toggleClass("open")})),$("a").removeClass("waves-effect waves-light"),$("#toc-sidebar").length){$(".publications h2").each((function(){$(this).attr("data-toc-skip","")}));var e="#toc-sidebar",t=$(e);Toc.init(t),$("body").scrollspy({target:e})}const n=document.createElement("link");n.href="../css/jupyter.css",n.rel="stylesheet",n.type="text/css";let a=determineComputedTheme();$(".jupyter-notebook-iframe-container iframe").each((function(){$(this).contents().find("head").append(n),"dark"==a&&$(this).bind("load",(function(){$(this).contents().find("body").attr({"data-jp-theme-light":"false","data-jp-theme-name":"JupyterLab Dark"})}))})),$('[data-toggle="popover"]').popover({trigger:"hover"})}));
+// Publication entries: the abstract, award and bibtex panels toggle and are mutually exclusive.
+$(document).ready(function () {
+  const panels = ["abstract", "award", "bibtex"];
+  $(".pub .chips button.abstract, .pub .chips button.award, .pub .chips button.bibtex").click(function () {
+    const clicked = panels.find((kind) => $(this).hasClass(kind));
+    const entry = $(this).closest(".pub__body");
+    panels.forEach((kind) => {
+      const panel = entry.find(`.${kind}.hidden`);
+      const toggle = entry.find(`.chips button.${kind}`);
+      const open = kind === clicked && !panel.hasClass("open");
+      panel.toggleClass("open", open);
+      toggle.attr("aria-expanded", String(open));
+    });
+  });
+});
