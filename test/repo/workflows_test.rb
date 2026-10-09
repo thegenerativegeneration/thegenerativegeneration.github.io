@@ -27,4 +27,12 @@ class WorkflowsTest < Minitest::Test
   def test_no_steps_for_removed_features
     WORKFLOWS.each { |file| refute_match(/giscus|jupyter|nbconvert/, File.read(file), File.basename(file)) }
   end
+
+  def test_lychee_can_resolve_root_relative_links
+    WORKFLOWS.each do |file|
+      steps(file).select { |s| s['uses'].to_s.start_with?('lycheeverse/lychee-action') }.each do |step|
+        assert_match(/--root-dir/, step.dig('with', 'args').to_s, "#{File.basename(file)} lychee without --root-dir")
+      end
+    end
+  end
 end

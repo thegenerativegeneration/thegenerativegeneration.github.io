@@ -24,13 +24,16 @@ jobs:
       - name: Build
         run: JEKYLL_ENV=production bundle exec jekyll build
       # Internal links are already checked by html-proofer in the deploy workflow;
-      # this job checks the outbound ones (press, papers, venues). News sites often
-      # answer bots with 403/429, which is not a broken link.
+      # this job checks the outbound ones (press, papers, venues). Own-domain URLs
+      # are skipped because GitHub Pages may still be publishing when this runs.
+      # News sites often answer bots with 403/429, which is not a broken link.
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
           fail: true
           args: >-
             --no-progress --max-retries 2 --accept 200,206,403,429
+            --root-dir ${{ github.workspace }}/_site
+            --exclude '^https://philipphaslbauer\.com'
             --exclude-path _site/assets
             '_site/**/*.html'
