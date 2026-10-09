@@ -1,48 +1,17 @@
 ---
 layout: default
 ---
+<header class="page-header">
+  <h1 class="page-title">{{ page.title }}</h1>
+  {% if page.year != '' %}<p class="meta">{{ page.year }}</p>{% endif %}
+  {% if page.description != '' %}<p class="lede">{{ page.description }}</p>{% endif %}
+</header>
 
-<div class="experiment-page">
-  <h1>{{ page.title }}{% if page.year != '' %} <span class="experiment-year">({{ page.year }})</span>{% endif %}</h1>
-
-  {% if page.description != '' %}
-  <p class="experiment-description">{{ page.description }}</p>
-  {% endif %}
-
-  <div class="experiment-frame-wrapper">
-    <iframe
-      src="/assets/experiments/{{ page.experiment }}/index.html"
-      title="{{ page.title }}"
-      allowfullscreen
-      allow="cross-origin-isolated"
-    ></iframe>
-  </div>
+<div class="experiment-frame">
+  <iframe
+    src="/assets/experiments/{{ page.experiment }}/index.html"
+    title="{{ page.title }}"
+    allowfullscreen
+    allow="cross-origin-isolated"
+  ></iframe>
 </div>
-
-<style>
-  .experiment-page {
-    width: 100%;
-    padding: 1rem 0;
-  }
-  .experiment-year {
-    font-size: 0.8em;
-    opacity: 0.6;
-    font-weight: normal;
-  }
-  .experiment-description {
-    margin-bottom: 1rem;
-    opacity: 0.8;
-  }
-  .experiment-frame-wrapper {
-    width: 100%;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid var(--global-divider-color, #e0e0e0);
-  }
-  .experiment-frame-wrapper iframe {
-    width: 100%;
-    height: 720px;
-    border: none;
-    display: block;
-  }
-</style>

@@ -1,0 +1,22 @@
+---
+layout: page
+title: works
+permalink: /works/
+description: Installations and artworks.
+nav: true
+nav_order: 1
+display_categories: [exhibited, in preparation, past]
+---
+{% for category in page.display_categories %}
+  {% assign items = site.projects | where: 'category', category | sort: 'importance', 'last' %}
+  {% if items.size > 0 %}
+    <section class="work-category" id="{{ category | slugify }}">
+      <h2 class="section-label">{{ category }}</h2>
+      <div class="card-grid">
+        {% for p in items %}
+          {% include card.liquid url=p.url img=p.img title=p.title meta=p.year description=p.description %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endfor %}

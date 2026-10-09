@@ -1,0 +1,12 @@
+.experiment-frame {
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: min(720px, 80vh);
+    border: 0;
+  }
+}

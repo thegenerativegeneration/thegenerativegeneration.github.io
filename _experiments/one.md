@@ -2,7 +2,8 @@
 title: Voice Animation (2023)
 description: A simple audio visualization.
 layout: demo
-img: /assets/img/demos/one-preview.jpg
+img: /assets/img/demos/one-preview.png
+importance: 3
 ---
 
 <script type="module" src="/assets/demos/one/one.js"></script>
