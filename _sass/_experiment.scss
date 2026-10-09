@@ -10,3 +10,55 @@
     border: 0;
   }
 }
+
+.audio-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+
+  [hidden] {
+    display: none;
+  }
+}
+
+.audio-input__start,
+.audio-input__select {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  font: inherit;
+  padding: var(--space-2) var(--space-3);
+
+  &:focus-visible {
+    border-color: var(--accent);
+    outline: none;
+  }
+}
+
+.audio-input__start {
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--head);
+  }
+
+  &:disabled {
+    cursor: progress;
+    color: var(--muted);
+  }
+}
+
+.audio-input__select {
+  max-width: min(360px, 100%);
+  background: var(--bg);
+}
+
+.audio-input__status {
+  color: var(--muted);
+}
