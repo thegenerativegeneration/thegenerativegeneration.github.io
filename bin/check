@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Build the site, run the Minitest suite, then check internal links and images.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+bundle exec jekyll build --quiet "$@"
+bundle exec ruby -Itest -e 'Dir["test/**/*_test.rb"].sort.each { |f| require File.expand_path(f) }'
+bundle exec ruby test/proof.rb
