@@ -118,10 +118,6 @@ jekyll-minifier:
     - assets/demos/**/*.js
     - assets/demos
 
-terser:
-  compress:
-    drop_console: true
-
 imagemagick:
   enabled: true
   widths: [480, 800, 1400]

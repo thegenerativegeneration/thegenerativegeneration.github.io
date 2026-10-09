@@ -12,7 +12,6 @@ group :jekyll_plugins do
   gem 'jekyll-regex-replace'
   gem 'jekyll-scholar'
   gem 'jekyll-sitemap'
-  gem 'jekyll-terser', :git => "https://github.com/RobertoJBeltran/jekyll-terser.git"
   gem 'jekyll-toc'
 end
 
