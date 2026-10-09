@@ -1,0 +1,60 @@
+@use "breakpoints" as bp;
+
+.row-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row-item {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--rule);
+
+  @media (max-width: bp.$sm - 0.02px) {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+.row-item--no-thumb {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.row-item__thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.row-item__title {
+  font-size: var(--step-0);
+  font-weight: 500;
+  margin: 0 0 var(--space-1);
+
+  a {
+    color: var(--head);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--accent);
+    }
+  }
+}
+
+.row-item__desc {
+  margin: 0 0 var(--space-2);
+}
+
+.row-item .meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0;
+}
