@@ -4,7 +4,7 @@
  */
 
 import { morseToText, textToMorse, MORSE_MAP } from './morse.js';
-import { initLLM, chat } from './llm.js';
+import { initLLM, chat, unsupportedReason } from './llm.js';
 import { startTone, stopTone, playMorse } from './audio.js';
 import { createWaveform }           from './waveform.js';
 import { createTapDetector }        from './tap.js';
@@ -164,15 +164,26 @@ const loadingText    = document.getElementById('loading-text');
 tapKey.disabled  = true;
 clearBtn.disabled = true;
 
-initLLM((report) => {
-  loadingBar.style.width = (report.progress * 100).toFixed(1) + '%';
-  loadingText.textContent = report.text;
-}).then(() => {
-  loadingOverlay.classList.add('hidden');
-  tapKey.disabled   = false;
-  clearBtn.disabled = false;
-  setStatus('READY', 0);
-}).catch((err) => {
-  loadingText.textContent = 'ERROR: ' + err.message;
-  loadingText.style.color = 'var(--red)';
-});
+const loadingTitle   = document.getElementById('loading-title');
+const loadingNote    = document.getElementById('loading-note');
+
+const reason = await unsupportedReason();
+if (reason) {
+  loadingTitle.textContent = 'BROWSER NOT SUPPORTED';
+  loadingBar.parentElement.hidden = true;
+  loadingText.textContent = reason;
+  loadingNote.textContent = 'Try a recent Chromium-based browser such as Chrome or Edge.';
+} else {
+  initLLM((report) => {
+    loadingBar.style.width = (report.progress * 100).toFixed(1) + '%';
+    loadingText.textContent = report.text;
+  }).then(() => {
+    loadingOverlay.classList.add('hidden');
+    tapKey.disabled   = false;
+    clearBtn.disabled = false;
+    setStatus('READY', 0);
+  }).catch((err) => {
+    loadingText.textContent = 'ERROR: ' + err.message;
+    loadingText.style.color = 'var(--red)';
+  });
+}

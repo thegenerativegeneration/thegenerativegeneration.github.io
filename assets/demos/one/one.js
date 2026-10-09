@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { createAudioInput } from '/assets/demos/utils.js';
 
 const vertexShader = /* glsl */ `
     uniform vec4 data;
@@ -35,58 +36,6 @@ const width = script_container.clientWidth || window.innerWidth;
 const height = script_container.clientHeight || window.innerHeight * 0.8;
 
 
-const createUI = (audioSources, container, onChangeCallback) => {
-
-    container.style.zIndex = '9999';
-  
-    const label = document.createElement('label');
-    label.textContent = 'Audio Input: ';
-    container.appendChild(label);
-  
-    const select = document.createElement('select');
-    select.addEventListener('change', (event) => {
-      const selectedSource = audioSources[event.target.value];
-      onChangeCallback(selectedSource);
-    });
-  
-    for (let i = 0; i < audioSources.length; i++) {
-      const option = document.createElement('option');
-      option.value = i;
-      console.log(audioSources[i]);
-      option.textContent = audioSources[i].label || `Source ${i + 1}`;
-      select.appendChild(option);
-    }
-  
-    container.appendChild(select);
-  };
-
-let analyser, selectedSource, stream;
-
-
-
-const setupAudio = async (selectedSource) => {
-
-    let stream = null;
-
-    analyser = await navigator.mediaDevices.getUserMedia({ audio: { deviceId: { exact: selectedSource.deviceId } } })
-        .then((s) => {
-            stream = s;
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            const source = audioCtx.createMediaStreamSource(stream);
-            analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 32;
-
-            source.connect(analyser);
-
-            return analyser;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-
-    return analyser;
-};
-
 const getMaterial = (baseColor) => {
     const material = new THREE.ShaderMaterial({
         uniforms: {
@@ -103,41 +52,15 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x3d0079);
 const camera = new THREE.PerspectiveCamera(100, width / height, 0.1, 1000);
 
+const audio = createAudioInput(script_container, { fftSize: 32 });
+
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
 });
 
 script_container.appendChild(renderer.domElement);
 
-console.log(await navigator.mediaDevices.enumerateDevices());
-
 renderer.setSize(width, height);
-
-
-navigator.mediaDevices.getUserMedia({ audio: true })
-
-const audioSources = await navigator.mediaDevices.enumerateDevices()
-    .then((devices) => devices.filter((device) => device.kind === 'audioinput'))
-    .catch((err) => {
-    console.log(err);
-    return [];
-});
-
-selectedSource = audioSources[0];
-
-
-createUI(audioSources, script_container, (selected) => {
-    if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
-    }
-
-    selectedSource = selected;
-
-    setupAudio(selectedSource);
-});
-
-setupAudio(selectedSource);
-
 
 const material1 = getMaterial(new THREE.Color(0xffab00));
 const geometry = new THREE.BoxGeometry();
@@ -184,6 +107,7 @@ const animate = function () {
     
     //cube.rotation.x += 0.01;
     //cube.rotation.y += 0.01;
+    const analyser = audio.analyser;
     if (analyser) {
 
         analyser.getByteFrequencyData(fftData);

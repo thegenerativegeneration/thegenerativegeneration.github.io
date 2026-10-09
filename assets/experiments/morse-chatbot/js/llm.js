@@ -18,8 +18,40 @@ const SYSTEM_PROMPT =
   '- You may occasionally use radio/telegraph lingo (COPY THAT, ROGER, OVER) for flavour.\n' +
   '- Be knowledgeable, friendly, and slightly old-fashioned in vocabulary.';
 
+// Device limits WebLLM requests (lib/index.js, detectGPUDevice). Below these it
+// throws only after the model download has started.
+const REQUIRED_LIMITS = {
+  maxBufferSize: 1 << 28,
+  maxStorageBufferBindingSize: 1 << 27,
+  maxComputeWorkgroupStorageSize: 32 << 10,
+  maxStorageBuffersPerShaderStage: 10,
+};
+
 /** @type {webllm.MLCEngine|null} */
 let engine = null;
+
+/**
+ * Check whether this browser's WebGPU can run the model, without downloading it.
+ * @returns {Promise<string|null>} why it cannot run, or null if it can
+ */
+export async function unsupportedReason() {
+  if (!navigator.gpu) return 'This browser does not support WebGPU.';
+  let adapter = null;
+  try {
+    adapter = await navigator.gpu.requestAdapter({ powerPreference: 'high-performance' });
+  } catch { /* treated as no adapter */ }
+  if (!adapter) return 'No WebGPU graphics adapter is available.';
+
+  const missing = Object.entries(REQUIRED_LIMITS)
+    .filter(([name, min]) => adapter.limits[name] < min)
+    .map(([name, min]) => `${name}: ${adapter.limits[name]} (needs ${min})`);
+  if (MODEL.includes('f16') && !adapter.features.has('shader-f16')) {
+    missing.push('shader-f16 feature');
+  }
+  return missing.length
+    ? `This browser's WebGPU is too limited for the model. ${missing.join(', ')}.`
+    : null;
+}
 
 /**
  * Download and initialise the model.

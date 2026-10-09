@@ -1,32 +1,15 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
-import { setupAudio, createUI, addAudioInputToUI, audioSources } from '/assets/demos/utils.js';
-
-
-let selectedSource = audioSources[0];
+import { createAudioInput } from '/assets/demos/utils.js';
 
 const mixers = [];
-let stream, analyser;
 const n_bins = 32;
 
 const script_container = document.getElementById('demo-container');
 const width = script_container.clientWidth || window.innerWidth;
 const height = script_container.clientHeight || window.innerHeight * 0.8;
-const gui = createUI(script_container);
-
-    
-addAudioInputToUI(audioSources, gui, async (selected) => {
-    if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
-    }
-
-    selectedSource = selected;
-
-    [analyser, stream] = await setupAudio(selectedSource, n_bins);
-});
-
-[analyser, stream] = await setupAudio(selectedSource, n_bins);
+const audio = createAudioInput(script_container, { fftSize: n_bins });
 
 const loader = new GLTFLoader();
 
@@ -110,6 +93,7 @@ const animate = () => {
 
     const delta = 0.1;
 
+    const analyser = audio.analyser;
     if (analyser) {
         analyser.getByteFrequencyData(fftData);
         let floatData = Float32Array.from(fftData);
