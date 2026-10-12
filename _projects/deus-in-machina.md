@@ -12,7 +12,7 @@ related_publications: true
 ---
 
 ## Appearances
-- **Sep-Oct 2024**. Exhibition at Peterskapelle (Peter's Chapel), Lucerne, Switzerland.
+- **Sep-Nov 2024**. Exhibition at Peterskapelle (Peter's Chapel), Lucerne, Switzerland.
 - **Oct 2025-Feb 2026**. Group exhibition at Artist House Vienna, Austria.
 - **9-13 Sep 2026**. Exhibit at Expanded 2026, the Conference on Animation and Interactive Art at Ars Electronica Festival, Linz, Austria.
 - **20 Sep 2026**. One-day exhibit in a tent in front of Einsiedeln Abbey, Switzerland.
@@ -24,7 +24,7 @@ People from all walks of life were drawn together to discuss the recent rapid ad
 
 The news of the project spread around the world like fire, being featured in hundreds of international news outlets, radio and TV stations, and on social media, instigating discourse. People visit and keep visiting from all over Switzerland and the world to meet and talk about the exhibition. 
 
-The installation ran from September to October 2024.
+The installation ran from September to November 2024.
 
 We held a church service together with AI Jesus.
 
