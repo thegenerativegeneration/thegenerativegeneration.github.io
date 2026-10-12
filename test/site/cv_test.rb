@@ -13,9 +13,17 @@ class CvTest < Minitest::Test
   end
 
   def test_every_section_and_entry_is_rendered
-    sections = data.reject { |s| s['contents'].nil? || s['contents'].empty? }
+    sections = data.reject { |s| s['type'] != 'bibliography' && (s['contents'].nil? || s['contents'].empty?) }
     assert_equal sections.map { |s| s['title'] }, cv.css('.cv-section > .section-label').map { |h| h.text.strip }
-    assert_equal sections.sum { |s| s['contents'].size }, cv.css('.cv-entry').size
+    assert_equal sections.sum { |s| s['contents']&.size.to_i }, cv.css('.cv-section:not(.cv-section--bib) .cv-entry').size
+  end
+
+  def test_publications_come_from_bibliography
+    entries = cv.css('.cv-section--bib .cv-entry')
+    refute_empty entries
+    assert entries.all? { |e| e.at_css('.pub__self') }, 'every publication highlights the site owner'
+    years = entries.map { |e| e.at_css('.cv-entry__year').text.to_i }
+    assert_equal years.sort.reverse, years
   end
 
   def test_string_and_list_descriptions_both_render

@@ -1,0 +1,30 @@
+---
+---
+<div class="cv-entry">
+  <div class="cv-entry__when">
+    <span class="cv-entry__year">{{ entry.year }}</span>
+    {% if entry.abbr and entry.abbr != 'Other' %}<span class="cv-entry__where">{{ entry.abbr | remove: entry.year | strip }}</span>{% endif %}
+  </div>
+  <div class="cv-entry__body">
+    {% if entry.doi %}
+      {% capture pub_url %}https://doi.org/{{ entry.doi | remove_first: 'https://doi.org/' }}{% endcapture %}
+    {% elsif entry.url %}
+      {% assign pub_url = entry.url %}
+    {% else %}
+      {% assign pub_url = entry.html %}
+    {% endif %}
+    <h3 class="cv-entry__title">{% if pub_url %}<a href="{{ pub_url }}">{{ entry.title | strip }}</a>{% else %}{{ entry.title | strip }}{% endif %}</h3>
+    {% assign venue = entry.journal | default: entry.booktitle %}
+    {% if venue %}<p class="cv-entry__org"><em>{{ venue }}</em></p>{% endif %}
+    <p class="cv-entry__desc">
+      {%- for author in entry.author_array -%}
+        {%- if site.scholar.last_name contains author.last and site.scholar.first_name contains author.first -%}
+          <em class="pub__self">{{ author.first }} {{ author.last }}</em>
+        {%- else -%}
+          {{ author.first }} {{ author.last }}
+        {%- endif -%}
+        {%- unless forloop.last %}, {% endunless -%}
+      {%- endfor -%}
+    </p>
+  </div>
+</div>

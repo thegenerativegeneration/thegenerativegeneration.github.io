@@ -11,6 +11,13 @@ layout: default
 
 <div class="cv">
   {% for section in site.data.cv %}
+    {% if section.type == 'bibliography' %}
+      <section class="cv-section cv-section--bib" id="{{ section.title | slugify }}">
+        <h2 class="section-label">{{ section.title }}</h2>
+        {% bibliography --template cv_bib --group_by none --query @*[abbr!=Other] %}
+      </section>
+      {% continue %}
+    {% endif %}
     {% if section.contents == nil or section.contents == empty %}{% continue %}{% endif %}
     <section class="cv-section" id="{{ section.title | slugify }}">
       <h2 class="section-label">{{ section.title }}</h2>

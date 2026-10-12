@@ -21,7 +21,7 @@ Requires Ruby (version in `.ruby-version`) and ImageMagick.
 | Experiments (local demos) | `_experiments/<name>.md` with `layout: demo` |
 | Experiments (generated) | `_experiments_src/public/<name>/` in the `experiments` submodule, with a `meta.json`; hide one via `experiments_exclude` in `_config.yml` |
 | Blog | `_posts/`, plus Substack RSS (`external_sources` in `_config.yml`, cached in `_data/rss_cache/`) |
-| CV | `_data/cv.yml` → `/cv/` (print it for a PDF) |
+| CV | `_data/cv.yml` → `/cv/` (print it for a PDF); the `type: bibliography` section lists `papers.bib` |
 | Contact links | `_data/socials.yml` |
 
 ### Featuring items on the home page

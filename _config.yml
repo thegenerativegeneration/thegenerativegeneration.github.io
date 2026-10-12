@@ -48,6 +48,8 @@ scholar:
   query: "@*"
   group_by: year
   group_order: descending
+  sort_by: year,month
+  order: descending,descending
 filtered_bibtex_keywords:
   [abbr, abstract, additional_info, annotation, arxiv, award, award_name, bibtex_show, blog, code,
    featured, featured_description, featured_order, featured_title, html, pdf, poster, preview,

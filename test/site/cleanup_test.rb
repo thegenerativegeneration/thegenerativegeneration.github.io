@@ -20,7 +20,7 @@ class CleanupTest < Minitest::Test
     end
     Dir.glob(File.join(ROOT, '_layouts', '*.liquid')).each do |layout|
       name = File.basename(layout, '.liquid')
-      assert_match(/(layout:\s*#{name}\b|bibliography_template:\s*#{name}\b|'layout'\s*=>\s*'#{name}')/, sources, "unused layout #{name}")
+      assert_match(/(layout:\s*#{name}\b|bibliography_template:\s*#{name}\b|--template\s+#{name}\b|'layout'\s*=>\s*'#{name}')/, sources, "unused layout #{name}")
     end
   end
 
