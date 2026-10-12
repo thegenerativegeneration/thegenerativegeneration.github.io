@@ -13,3 +13,11 @@ $(document).ready(function () {
     });
   });
 });
+
+// Looping videos stay still for visitors who prefer reduced motion.
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.querySelectorAll("video[autoplay]").forEach((video) => {
+    video.removeAttribute("autoplay");
+    video.pause();
+  });
+}
