@@ -16,15 +16,28 @@
     <h3 class="cv-entry__title">{% if pub_url %}<a href="{{ pub_url }}">{{ entry.title | strip }}</a>{% else %}{{ entry.title | strip }}{% endif %}</h3>
     {% assign venue = entry.journal | default: entry.booktitle %}
     {% if venue %}<p class="cv-entry__org"><em>{{ venue }}</em></p>{% endif %}
+    {% assign author_count = entry.author_array | size %}
+    {% assign self_index = -1 %}
+    {% for author in entry.author_array %}
+      {% if site.scholar.last_name contains author.last and site.scholar.first_name contains author.first %}{% assign self_index = forloop.index0 %}{% endif %}
+    {% endfor %}
+    {% assign shown = author_count %}
+    {% if author_count > site.cv_max_authors %}{% assign shown = site.cv_shown_authors %}{% endif %}
     <p class="cv-entry__desc">
-      {%- for author in entry.author_array -%}
-        {%- if site.scholar.last_name contains author.last and site.scholar.first_name contains author.first -%}
+      {%- for author in entry.author_array limit: shown -%}
+        {%- if forloop.index0 == self_index -%}
           <em class="pub__self">{{ author.first }} {{ author.last }}</em>
         {%- else -%}
           {{ author.first }} {{ author.last }}
         {%- endif -%}
         {%- unless forloop.last %}, {% endunless -%}
       {%- endfor -%}
+      {%- if self_index >= shown -%}
+        {%- assign self_author = entry.author_array[self_index] -%}
+        , …, <em class="pub__self">{{ self_author.first }} {{ self_author.last }}</em>
+      {%- endif -%}
+      {%- assign last_shown = shown | minus: 1 | at_least: self_index | plus: 1 -%}
+      {%- if last_shown < author_count %}, et al.{% endif -%}
     </p>
   </div>
 </div>
