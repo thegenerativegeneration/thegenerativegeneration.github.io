@@ -18,15 +18,25 @@
     margin-top: var(--space-8);
   }
 
-  img {
+  img,
+  video {
     display: block;
     width: 100%;
     margin: var(--space-6) 0 var(--space-2);
     border-radius: 2px;
   }
 
+  video {
+    height: auto;
+  }
+
+  figure {
+    margin-bottom: var(--space-6);
+  }
+
   em:only-child,
-  img + em {
+  img + em,
+  figcaption {
     display: block;
     font-family: var(--font-mono);
     font-style: normal;
