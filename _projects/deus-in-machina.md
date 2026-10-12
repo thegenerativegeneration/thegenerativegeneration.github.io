@@ -44,7 +44,7 @@ I chose the way the system interacts with people, basing my decisions on literat
 **Expanded 2026, Ars Electronica Festival, Linz, 9–13 Sep 2026.** Shown at the Salzamt as part of the Expanded conference exhibition. Visitors stepped through a curtain into a small room where AI Jesus waited behind the lattice of a wooden box.
 
 <figure>
-  <video src="/assets/video/deus-in-machina/linz_salzamt_entrance.mp4" poster="/assets/img/projects/deus-in-machina/linz_salzamt_entrance_poster.jpg" width="1280" height="960" autoplay muted loop playsinline controls preload="metadata" aria-label="The camera passes through a grey curtain into a small room with a stained-glass window, where the wooden box with AI Jesus stands on a table."></video>
+  <video src="/assets/video/deus-in-machina/linz_salzamt_entrance.mp4" poster="/assets/img/projects/deus-in-machina/linz_salzamt_entrance_poster.jpg" width="960" height="1280" style="max-width: 525px;" autoplay muted loop playsinline controls preload="metadata" aria-label="The camera passes through a grey curtain into a small room with a stained-glass window, where the wooden box with AI Jesus stands on a table."></video>
   <figcaption>Stepping through the curtain at the Salzamt.</figcaption>
 </figure>
 
