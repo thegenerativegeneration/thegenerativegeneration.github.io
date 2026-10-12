@@ -13,8 +13,8 @@ class WorksExperimentsTest < Minitest::Test
   end
 
   def test_work_page_and_card_show_meta_line
-    assert_equal '2024–2026 · Lucerne, Vienna', page('/works/deus-in-machina/').at_css('.page-header .meta').text.strip
-    assert_equal '2024–2026 · Lucerne, Vienna', page('/works/').at_css('.card-item__meta').text.strip
+    assert_equal '2024–2026 · Lucerne, Vienna, Linz', page('/works/deus-in-machina/').at_css('.page-header .meta').text.strip
+    assert_equal '2024–2026 · Lucerne, Vienna, Linz', page('/works/').at_css('.card-item__meta').text.strip
   end
 
   def test_work_page_marks_works_nav_active

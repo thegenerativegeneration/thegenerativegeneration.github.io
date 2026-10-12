@@ -7,13 +7,14 @@ importance: 1
 category: exhibited
 featured: true
 featured_order: 1
-meta: "2024–2026 · Lucerne, Vienna"
+meta: "2024–2026 · Lucerne, Vienna, Linz"
 related_publications: true
 ---
 
 ## Appearances
 - **Sep-Oct 2024**. Exhibition at Peterskapelle (Peter's Chapel), Lucerne, Switzerland.
 - **Oct 2025-Feb 2026**. Group exhibition at Artist House Vienna, Austria.
+- **9-13 Sep 2026**. Exhibit at Expanded 2026, the Conference on Animation and Interactive Art at Ars Electronica Festival, Linz, Austria.
 
 **Deus in Machina is an art installation combining art, religion, and AI. An AI avatar based on the artist's face, voice, and mannerisms takes on the role of Jesus Christ and interacts with people. The installation was placed within the confessional booth of a church. People interact with their voice through a latticed window between the booth’s two compartments.**
 

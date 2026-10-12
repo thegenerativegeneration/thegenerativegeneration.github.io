@@ -42,6 +42,10 @@
 - title: Conferences & Talks
   type: time_table
   contents:
+    - title: Exhibit Presentation, "Deus in Machina"
+      event: "Expanded 2026: Conference on Animation and Interactive Art, Ars Electronica Festival"
+      year: 2026
+      location: Linz, AT
     - title: Session Chair & Paper Presentation
       event: 12th International Conference on Digital and Interactive Arts (Artech 2025)
       year: 2025
@@ -81,6 +85,7 @@
         - An AI avatar takes on the role of Jesus Christ and interacts with people within a church
         - "Exhibited: <a href='https://www.kathluzern.ch/mein-engagement/deus-in-machina' target='_blank'>Peterskapelle, Lucerne, CH</a> (Sep–Nov 2024)"
         - "Exhibited: <a href='https://www.kuenstlerhaus.at/besuch/kalender/ausstellung/475/du-sollst-dir-ein-bild-machen.html' target='_blank'>Künstlerhaus Wien, Vienna, AT</a> (Oct 2025–Feb 2026)"
+        - "Exhibited: Expanded 2026, Ars Electronica Festival, Linz, AT (9–13 Sep 2026)"
 
 - title: Media Appearances
   type: time_table
