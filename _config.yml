@@ -57,6 +57,7 @@ filtered_bibtex_keywords:
 max_author_limit: 3
 cv_max_authors: 5
 cv_shown_authors: 3
+cv_email: phhaslbauer@yahoo.de
 more_authors_animation_delay: 10
 enable_publication_thumbnails: true
 bib_search: true

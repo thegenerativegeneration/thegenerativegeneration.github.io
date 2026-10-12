@@ -4,10 +4,22 @@ layout: default
 <header class="page-header cv-header">
   <div>
     <h1 class="page-title">{{ page.title }}</h1>
-    <p class="cv-print-only">{{ site.first_name }} {{ site.last_name }} · {{ site.url | remove: 'https://' }}</p>
+    {% assign s = site.data.socials %}
+    <p class="cv-print-only">
+      {{ site.first_name }} {{ site.last_name }} · {{ site.url | remove: 'https://' }}
+      {%- if site.cv_email %} · <a class="cv-email" href="mailto:{{ site.cv_email | encode_email }}">email</a>{% endif %}
+      {%- if s.linkedin_username %} · <a href="https://www.linkedin.com/in/{{ s.linkedin_username }}">LinkedIn</a>{% endif %}
+      {%- if s.scholar_userid %} · <a href="https://scholar.google.com/citations?user={{ s.scholar_userid }}">Google Scholar</a>{% endif %}
+    </p>
   </div>
   <button type="button" class="chip cv-print" onclick="window.print()">Download PDF</button>
 </header>
+
+<script>
+  document.querySelectorAll('.cv-email').forEach((a) => {
+    a.textContent = decodeURIComponent(a.getAttribute('href').slice('mailto:'.length));
+  });
+</script>
 
 <div class="cv">
   {% for section in site.data.cv %}

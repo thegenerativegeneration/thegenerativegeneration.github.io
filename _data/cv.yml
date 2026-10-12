@@ -10,8 +10,8 @@
   type: time_table
   contents:
     - title: Master of Science in Engineering
-      institution: University of Applied Sciences and Arts, Lucerne, Switzerland
-      year: 2024
+      institution: University of Applied Sciences and Arts, Lucerne, Switzerland (profile Data Science)
+      year: 2022–2024
       description:
         - Project 1 "Leveraging Pre-Trained Latent Diffusion Models for Video Generation"
         - Project 2 "Real-time Rendering of Learned 3D Scenes".
@@ -21,6 +21,9 @@
       year: 2018
       description:
         - Thesis "Reinforcement Learning in the Context of Financial Time Series Applications"
+    - title: Exchange Semester
+      institution: National Taiwan University of Science and Technology (NTUST), Taipei, Taiwan
+      year: 2017
 
 - title: Work Experience
   type: time_table
@@ -34,10 +37,33 @@
         - Applied 3D reconstruction
     - title: AI & Software Engineer
       institution: Seven Principles, Frankfurt, Germany
-      year: 2018–2023
+      year: 2018–2022
+      description:
+        - REST backend serving millions of devices; optimization of the operational infrastructure
+        - Edge prototype detecting and analyzing road-user behavior with stereo cameras
+        - Backend issuing digital keys for a hotel chain's door-lock systems
     - title: AI & Software Engineer
       institution: Forum 8, Miyazaki, Japan
       year: 2017–2018
+      description:
+        - Backend and frontend development
+        - Convolutional neural network prototypes for tracking road users and for early detection of damage in concrete buildings
+
+- title: Research Projects
+  type: time_table
+  contents:
+    - title: REALM – Research on Extended And Layered Multimodalities
+      institution: Horizon Europe, grant 101298050
+      year: 2026–now
+      description: Core technologies for next-generation virtual worlds, covering capture, AI-assisted authoring and delivery.
+    - title: HEAT – Hybrid Extended Reality
+      institution: Horizon Europe, grant 101135637
+      year: 2024–now
+      description: Social VR, holographic imaging and multisensory media for telepresence in education and culture.
+    - title: TRANSMIXR – Ignite the Immersive Media Sector by Enabling New Narrative Visions
+      institution: Horizon Europe, grant 101070109
+      year: 2023–2025
+      description: XR platform that lets non-experts create, share and play back immersive media.
 
 - title: Publications
   type: bibliography
@@ -49,15 +75,15 @@
       event: "Expanded 2026: Conference on Animation and Interactive Art, Ars Electronica Festival"
       year: 2026
       location: Linz, AT
-    - title: Session Chair & Paper Presentation
+    - title: Session Chair & Paper Presentation, "Deus in Machina"
       event: 12th International Conference on Digital and Interactive Arts (Artech 2025)
       year: 2025
       location: Braga, PT
-    - title: Poster Presentation
+    - title: Poster Presentation, "Gaussian Splatting vs. Classical Photogrammetry"
       event: 17th International Conference on Quality of Multimedia Experience (QoMEX 2025)
       year: 2025
       location: Madrid, ES
-    - title: Paper Presentation
+    - title: Paper Presentation, "VR Planica"
       event: ACM International Conference on Interactive Media Experiences (IMX 2025)
       year: 2025
       location: Niteroí, BR
@@ -71,7 +97,7 @@
     - year: 2025–2026
       institution: Syndicom (2025–2026); Visualisierungsakademie (2026)
       title: Courses on generative AI for creative professionals
-    - year: 2025-2026
+    - year: 2025–2026
       institution: University of Applied Sciences and Arts, Lucerne, Switzerland
       title: Seminar on the use of Large Language Models in interactive experiences
 
@@ -85,6 +111,11 @@
         - "Exhibited: <a href='https://www.kathluzern.ch/mein-engagement/deus-in-machina' target='_blank'>Peterskapelle, Lucerne, CH</a> (Sep–Nov 2024)"
         - "Exhibited: <a href='https://www.kuenstlerhaus.at/besuch/kalender/ausstellung/475/du-sollst-dir-ein-bild-machen.html' target='_blank'>Künstlerhaus Wien, Vienna, AT</a> (Oct 2025–Feb 2026)"
         - "Exhibited: Expanded 2026, Ars Electronica Festival, Linz, AT (9–13 Sep 2026)"
+
+- title: Languages
+  type: time_table
+  contents:
+    - title: German (native), English (C1)
 
 - title: Media Appearances
   type: time_table
