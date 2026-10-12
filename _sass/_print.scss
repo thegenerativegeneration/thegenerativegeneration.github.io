@@ -18,6 +18,12 @@
     font-size: 10.5pt;
   }
 
+  // Bootstrap's print sheet forces 992px, wider than A4; Firefox at 100% scale clips it.
+  body,
+  .container {
+    min-width: 0 !important;
+  }
+
   .site-header,
   .site-footer,
   .skip-link,
@@ -40,6 +46,8 @@
     text-decoration: none;
   }
 
+  // Firefox ignores break-after on headings, so keep short sections whole.
+  .cv-section,
   .cv-entry {
     break-inside: avoid;
   }
