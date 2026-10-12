@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Deus in Machina (2024)
-img: /assets/img/projects/deus-in-machina/thumbnail_linz.jpg
+img: /assets/img/projects/deus-in-machina/thumbnail.jpg
 description: A church installation with an AI avatar of Jesus Christ.
 importance: 1
 category: exhibited
