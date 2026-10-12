@@ -27,17 +27,17 @@
   contents:
     - title: Research Assistant & Associate
       institution: University of Applied Sciences and Arts, Lucerne, Switzerland
-      year: 2023-now
+      year: 2023–now
       description:
         - Research on the use of AI in interactive experiences
         - Development of prototypes for interactive installations
         - Applied 3D reconstruction
     - title: AI & Software Engineer
       institution: Seven Principles, Frankfurt, Germany
-      year: 2018-2023
+      year: 2018–2023
     - title: AI & Software Engineer
       institution: Forum 8, Miyazaki, Japan
-      year: 2017-2018
+      year: 2017–2018
 
 - title: Conferences & Talks
   type: time_table
@@ -65,16 +65,12 @@
 - title: Teaching
   type: time_table
   contents:
-    - year: 2026
-      institution: Syndicom; Visualisierungsakademie
+    - year: 2025–2026
+      institution: Syndicom (2025–2026); Visualisierungsakademie (2026)
       title: Courses on generative AI for creative professionals
     - year: 2025
-      description:
       institution: University of Applied Sciences and Arts, Lucerne, Switzerland
       title: Seminar on the use of Large Language Models in interactive experiences
-    - year: 2025
-      institution: Syndicom
-      title: Courses on generative AI for creative professionals
 
 - title: Artworks
   type: time_table
